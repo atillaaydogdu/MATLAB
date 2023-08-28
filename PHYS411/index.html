@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Letters</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script type="application/processing">
+size(500, 500);
+
+int rows = 10;
+int cols = 10;
+
+int cellHeight = height/rows;
+int cellWidth = width/cols;
+
+textAlign(CENTER, CENTER);
+textSize(28);
+
+background(32);
+
+for(int y = 0; y < rows; y++){
+  for(int x = 0; x < cols; x++){
+       
+    //get a random ascii letter
+    char c = '!';
+    c += random(93);
+    
+    //calculate cell position
+    int pixelX = cellWidth * x;
+    int pixelY = cellHeight * y;
+    
+    //add half to center letters
+    pixelX += cellWidth/2;
+    pixelY += cellHeight/2;
+    
+    fill(random(256));
+    text(char(c), pixelX, pixelY);
+  }
+}
+</script>
+<canvas> </canvas>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.0/processing.min.js'></script>
+</body>
+</html>
